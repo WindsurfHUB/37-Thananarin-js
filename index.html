@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
+    <title>Product Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-    </header>
+<body class="bg-gray-100 p-10">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Product Dashboard</h1>
+        
+        <!-- Form Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Add New Product</h2>
+            <form id="productForm" class="bg-white p-6 rounded shadow-md">
+                <div class="mb-4">
+                    <label for="productName" class="block text-gray-700">Product Name</label>
+                    <input type="text" id="productName" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div class="mb-4">
+                    <label for="productPrice" class="block text-gray-700">Price</label>
+                    <input type="text" id="productPrice" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div class="mb-4">
+                    <label for="productImage" class="block text-gray-700">Image URL</label>
+                    <input type="text" id="productImage" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Create Product</button>
+            </form>
+        </div>
+
+        <!-- Product Dashboard Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Products</h2>
+            <div id="productDashboard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+
+        <!-- Cart Section -->
+        <div>
+            <h2 class="text-2xl font-semibold mb-4">Cart</h2>
+            <div id="cart" class="bg-white p-6 rounded shadow-md">
+                <p class="text-gray-700">No items in the cart.</p>
+            </div>
+            <button id="calculatePrice" class="bg-green-500 text-white px-4 py-2 rounded mt-4 hidden">Calculate Final Price</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
