@@ -89,12 +89,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3 class="text-lg font-semibold">${item.name}</h3>
                         <p class="text-gray-700">$${item.price.toFixed(2)}</p>
                     </div>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-2 py-2 rounded delete-btn"><i class="px-2 fa-solid fa-trash-can"></i>Delete</button>
                 `;
-        cart.appendChild(cartItem);
-      });
-      calculatePriceButton.classList.remove("hidden");
+            const deleteButton = cartItem.querySelector('.delete-btn');
+            deleteButton.addEventListener('click', () => deleteItem(item.id));
+
+            cart.appendChild(cartItem);
+        });
+        calculatePriceButton.classList.remove("hidden");
     }
   }
+
+  function deleteItem(id) {
+    cartItems = cartItems.filter((item) => item.id !== id);
+    renderCart();
+}
 
 
   calculatePriceButton.addEventListener("click", () => {
